@@ -1,3 +1,4 @@
+import React from 'react';
 import { css } from '@emotion/css';
 import get from 'lodash.get';
 import useSWR from 'swr';
@@ -45,22 +46,22 @@ const Card = ({ data }) => {
               </h2>
               {species && (
                 <p className={css(tw`text-gray-700 text-base`)}>
-                  Species: {species}
+                  {`Species: ${species}`}
                 </p>
               )}
               {originName && (
                 <p className={css(tw`text-gray-700 text-base`)}>
-                  Origin: {originName}
+                  {`Origin: ${originName}`}
                 </p>
               )}
               {originDimension && (
                 <p className={css(tw`text-gray-700 text-base`)}>
-                  Dimension: {originDimension}
+                  {`Dimension: ${originDimension}`}
                 </p>
               )}
               {originResidents.length > 0 && (
                 <p className={css(tw`text-gray-700 text-base`)}>
-                  No of residents: {originResidents.length}
+                  {`No of residents: ${originResidents.length}`}
                 </p>
               )}
             </div>

@@ -2,15 +2,11 @@ import React from 'react';
 import { css } from '@emotion/css';
 import get from 'lodash.get';
 import useSWR from 'swr';
+import PropTypes from 'prop-types';
 import tw from '@tailwindcssinjs/macro';
 
-const fetcher = url => fetch(url).then(r => r.json());
-
 const Episode = ({ url }) => {
-  const { data: episodeData, isValidating } = useSWR(url, fetcher, {
-    revalidateOnFocus: false,
-    dedupingInterval: 300000,
-  });
+  const { data: episodeData, isValidating } = useSWR(url);
   const episodeName = get(episodeData, 'name', '');
 
   return (
@@ -26,6 +22,14 @@ const Episode = ({ url }) => {
       )}
     </>
   );
+};
+
+Episode.defaultProps = {
+  url: '',
+};
+
+Episode.propTypes = {
+  url: PropTypes.string,
 };
 
 export default Episode;

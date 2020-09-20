@@ -8,21 +8,12 @@ import Card from './Card';
 import Spinner from './Spinner';
 import Pagination from './Pagination';
 
-const fetcher = url => fetch(url).then(r => r.json());
-
 const MainComponent = () => {
   const router = useRouter();
   const { page = 1 } = router.query;
   const currentPage = Number(page);
   const charactersAPI = `https://rickandmortyapi.com/api/character/?page=${currentPage}`;
-  const { data: charactersData, isValidating } = useSWR(
-    charactersAPI,
-    fetcher,
-    {
-      revalidateOnFocus: false,
-      dedupingInterval: 300000,
-    },
-  );
+  const { data: charactersData, isValidating } = useSWR(charactersAPI);
   const charactersDataResults = get(charactersData, 'results', []);
   const totalPages = get(charactersData, 'info.pages', 0);
   if (isValidating || charactersData === undefined) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/css';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import tw from '@tailwindcssinjs/macro';
 
@@ -54,6 +55,16 @@ const Pagination = ({ currentPage, totalPages }) => {
       )}
     </div>
   );
+};
+
+Pagination.defaultProps = {
+  currentPage: 0,
+  totalPages: 0,
+};
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
 };
 
 export default Pagination;

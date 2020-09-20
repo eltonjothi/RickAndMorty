@@ -2,17 +2,12 @@ import React from 'react';
 import { css } from '@emotion/css';
 import get from 'lodash.get';
 import useSWR from 'swr';
+import PropTypes from 'prop-types';
 import tw from '@tailwindcssinjs/macro';
 import Episode from './Episode';
 
-const fetcher = url => fetch(url).then(r => r.json());
-
 const Card = ({ name, image, species, originAPI, episodes }) => {
-  const { data: originData } = useSWR(originAPI, fetcher, {
-    revalidateOnFocus: false,
-    dedupingInterval: 300000,
-  });
-
+  const { data: originData } = useSWR(originAPI);
   const originName = get(originData, 'name', '');
   const originDimension = get(originData, 'dimension', '');
   const originResidents = get(originData, 'residents', []);
@@ -80,4 +75,21 @@ const Card = ({ name, image, species, originAPI, episodes }) => {
   );
 };
 
+Card.defaultProps = {
+  name: '',
+  image: '',
+  species: '',
+  originAPI: '',
+  episodes: [],
+};
+
+Card.propTypes = {
+  name: PropTypes.string,
+  image: PropTypes.string,
+  species: PropTypes.string,
+  originAPI: PropTypes.string,
+  episodes: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  ),
+};
 export default Card;

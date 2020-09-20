@@ -37,7 +37,23 @@ const MainComponent = () => {
       <div className={css(tw`container mx-auto mt-4`)}>
         <div className={css(tw`flex flex-wrap `)}>
           {Array.isArray(charactersDataResults) &&
-            charactersDataResults.map(index => <Card data={index} />)}
+            charactersDataResults.map(data => {
+              const name = get(data, 'name', '');
+              const image = get(data, 'image', '');
+              const species = get(data, 'species', '');
+              const originAPI = get(data, 'origin.url', '');
+              const episodes = get(data, 'episode', []);
+              return (
+                <Card
+                  key={data.id}
+                  name={name}
+                  image={image}
+                  species={species}
+                  originAPI={originAPI}
+                  episodes={episodes}
+                />
+              );
+            })}
         </div>
       </div>
       <div className={css(tw`flex justify-items-center mt-5 mb-20`)}>

@@ -7,12 +7,8 @@ import Episode from './Episode';
 
 const fetcher = url => fetch(url).then(r => r.json());
 
-const Card = ({ data }) => {
-  const name = get(data, 'name', '');
-  const image = get(data, 'image', '');
-  const species = get(data, 'species', '');
-  const originAPI = get(data, 'origin.url', '');
-  const { data: originData, isValidating } = useSWR(originAPI, fetcher, {
+const Card = ({ name, image, species, originAPI, episodes }) => {
+  const { data: originData } = useSWR(originAPI, fetcher, {
     revalidateOnFocus: false,
     dedupingInterval: 300000,
   });
@@ -20,8 +16,6 @@ const Card = ({ data }) => {
   const originName = get(originData, 'name', '');
   const originDimension = get(originData, 'dimension', '');
   const originResidents = get(originData, 'residents', []);
-
-  const episodes = get(data, 'episode', []);
 
   return (
     <>
@@ -71,9 +65,12 @@ const Card = ({ data }) => {
               <h4 className={css(tw`text-gray-800 font-bold text-sm mb-1`)}>
                 Featured in
               </h4>
-              <div className={css(tw``)}>
+              <div>
                 {Array.isArray(episodes) &&
-                  episodes.map(index => <Episode url={index} />)}
+                  episodes.map((data, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <Episode url={data} key={index} />
+                  ))}
               </div>
             </div>
           </div>

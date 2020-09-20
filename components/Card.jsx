@@ -56,9 +56,9 @@ const Card = ({ name, image, species, originAPI, episodes }) => {
           </div>
           <div className={css(tw`md:flex bg-cool-gray-200 rounded p-2 mt-6`)}>
             <div className={css(tw`text-center md:text-left`)}>
-              <h4 className={css(tw`text-gray-800 font-bold text-sm mb-1`)}>
+              <p className={css(tw`text-gray-800 font-bold text-sm mb-1`)}>
                 Featured in
-              </h4>
+              </p>
               <div>
                 {Array.isArray(episodes) &&
                   episodes.map((data, index) => (

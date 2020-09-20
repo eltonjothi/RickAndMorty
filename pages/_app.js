@@ -7,7 +7,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Housing Anywhere Assessment</title>
+        <title>The Rick and Morty API</title>
       </Head>
       <Component {...pageProps} />
     </>

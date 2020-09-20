@@ -11,7 +11,6 @@ const Card = ({ name, image, species, originAPI, episodes }) => {
   const originName = get(originData, 'name', '');
   const originDimension = get(originData, 'dimension', '');
   const originResidents = get(originData, 'residents', []);
-
   return (
     <>
       <div

@@ -8,7 +8,6 @@ import tw from '@tailwindcssinjs/macro';
 const Episode = ({ url }) => {
   const { data: episodeData, isValidating } = useSWR(url);
   const episodeName = get(episodeData, 'name', '');
-
   return (
     <>
       {!isValidating && (

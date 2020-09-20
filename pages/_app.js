@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import '../styles/base.css'
+import Head from 'next/head';
+import '../styles/base.css';
 
 export default function MyApp({ Component, pageProps }) {
   return (
@@ -9,5 +9,5 @@ export default function MyApp({ Component, pageProps }) {
       </Head>
       <Component {...pageProps} />
     </>
-  )
+  );
 }

@@ -1,7 +1,7 @@
-import { css } from "@emotion/css";
-import { useRouter } from "next/router";
-import Link from "next/link";
-import tw from "@tailwindcssinjs/macro";
+import { css } from '@emotion/css';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+import tw from '@tailwindcssinjs/macro';
 
 const Pagination = ({ currentPage, totalPages }) => {
   const router = useRouter();
@@ -9,13 +9,13 @@ const Pagination = ({ currentPage, totalPages }) => {
     JSON.stringify({
       ...router.query,
       page: currentPage - 1,
-    })
+    }),
   );
   const nextPageParseQbject = JSON.parse(
     JSON.stringify({
       ...router.query,
       page: currentPage + 1,
-    })
+    }),
   );
   return (
     <div className={css(tw`inline-flex mx-auto`)}>
@@ -28,7 +28,7 @@ const Pagination = ({ currentPage, totalPages }) => {
         >
           <a
             className={css(
-              tw`bg-white hover:bg-cool-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-2`
+              tw`bg-white hover:bg-cool-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow mr-2`,
             )}
           >
             Prev
@@ -44,7 +44,7 @@ const Pagination = ({ currentPage, totalPages }) => {
         >
           <a
             className={css(
-              tw`bg-white hover:bg-cool-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow ml-2`
+              tw`bg-white hover:bg-cool-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow ml-2`,
             )}
           >
             Next

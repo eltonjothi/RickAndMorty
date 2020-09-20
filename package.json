@@ -5,6 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "jest --watch",
+    "format": "prettier --write '**/*.{ts,js,css,html,jsx,scss}'",
     "build:base-css": "tailwindcss build ./styles/tailwind.base.css -o ./styles/base.css"
   },
   "dependencies": {
@@ -19,6 +21,20 @@
     "swr": "^0.3.2"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.3",
+    "@testing-library/react": "^10.4.8",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^26.3.0",
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "jest": "^26.3.0",
+    "prettier": "^1.19.1",
     "@babel/core": "^7.9.0",
     "@emotion/babel-plugin": "^11.0.0-next.12",
     "@emotion/server": "^11.0.0-next.12",

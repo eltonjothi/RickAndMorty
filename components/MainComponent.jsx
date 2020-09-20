@@ -1,11 +1,11 @@
-import { css } from "@emotion/css";
-import get from "lodash.get";
-import { useRouter } from "next/router";
-import tw from "@tailwindcssinjs/macro";
-import Card from "./Card";
-import Spinner from "./Spinner";
-import Pagination from "./Pagination";
-import useSWR from "swr";
+import { css } from '@emotion/css';
+import get from 'lodash.get';
+import { useRouter } from 'next/router';
+import tw from '@tailwindcssinjs/macro';
+import Card from './Card';
+import Spinner from './Spinner';
+import Pagination from './Pagination';
+import useSWR from 'swr';
 
 const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -20,10 +20,10 @@ const MainComponent = () => {
     {
       revalidateOnFocus: false,
       dedupingInterval: 300000,
-    }
+    },
   );
-  const charactersDataResults = get(charactersData, "results", []);
-  const totalPages = get(charactersData, "info.pages", 0);
+  const charactersDataResults = get(charactersData, 'results', []);
+  const totalPages = get(charactersData, 'info.pages', 0);
   if (isValidating || charactersData === undefined) {
     return (
       <div className={css(tw`flex justify-center mt-4`)}>

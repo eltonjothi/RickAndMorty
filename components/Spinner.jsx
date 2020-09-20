@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { css, keyframes } from "@emotion/css";
+import styled from '@emotion/styled';
+import { css, keyframes } from '@emotion/css';
 
 const bounce = keyframes`
   0% {

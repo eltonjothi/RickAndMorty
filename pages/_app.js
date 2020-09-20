@@ -5,7 +5,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Tailwindcss Emotion Example</title>
+        <title>Housing Anywhere Assessment</title>
       </Head>
       <Component {...pageProps} />
     </>

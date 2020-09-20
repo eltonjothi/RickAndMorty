@@ -1,15 +1,11 @@
-import { css } from '@emotion/css'
-import tw from '@tailwindcssinjs/macro'
-import ButtonCss from '../components/ButtonCss'
-import ButtonReact from '../components/ButtonReact'
-import ButtonStyled from '../components/ButtonStyled'
+import Header from "../components/Header";
+import MainComponent from "../components/MainComponent";
 
 const Index = () => (
-  <div className={css(tw`grid justify-center items-center h-screen`)}>
-    <ButtonCss>@emotion/css</ButtonCss>
-    <ButtonReact>@emotion/react</ButtonReact>
-    <ButtonStyled>@emotion/styled</ButtonStyled>
-  </div>
-)
+  <>
+    <Header />
+    <MainComponent />
+  </>
+);
 
-export default Index
+export default Index;

@@ -5,7 +5,7 @@ import useSWR from 'swr';
 import tw from '@tailwindcssinjs/macro';
 import Episode from './Episode';
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = url => fetch(url).then(r => r.json());
 
 const Card = ({ data }) => {
   const name = get(data, 'name', '');
@@ -73,7 +73,7 @@ const Card = ({ data }) => {
               </h4>
               <div className={css(tw``)}>
                 {Array.isArray(episodes) &&
-                  episodes.map((index) => <Episode url={index} />)}
+                  episodes.map(index => <Episode url={index} />)}
               </div>
             </div>
           </div>

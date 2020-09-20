@@ -12,4 +12,7 @@ module.exports = {
   globals: {
     window: true,
   },
+  env:{
+    browser: true,
+  }
 };

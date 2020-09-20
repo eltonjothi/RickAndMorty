@@ -1,14 +1,14 @@
 import React from 'react';
 import { css } from '@emotion/css';
 import get from 'lodash.get';
+import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import tw from '@tailwindcssinjs/macro';
 import Card from './Card';
 import Spinner from './Spinner';
 import Pagination from './Pagination';
-import useSWR from 'swr';
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = url => fetch(url).then(r => r.json());
 
 const MainComponent = () => {
   const router = useRouter();
@@ -37,7 +37,7 @@ const MainComponent = () => {
       <div className={css(tw`container mx-auto mt-4`)}>
         <div className={css(tw`flex flex-wrap `)}>
           {Array.isArray(charactersDataResults) &&
-            charactersDataResults.map((index) => <Card data={index} />)}
+            charactersDataResults.map(index => <Card data={index} />)}
         </div>
       </div>
       <div className={css(tw`flex justify-items-center mt-5 mb-20`)}>

@@ -4,7 +4,7 @@ import get from 'lodash.get';
 import useSWR from 'swr';
 import tw from '@tailwindcssinjs/macro';
 
-const fetcher = (url) => fetch(url).then((r) => r.json());
+const fetcher = url => fetch(url).then(r => r.json());
 
 const Episode = ({ url }) => {
   const { data: episodeData, isValidating } = useSWR(url, fetcher, {
@@ -12,7 +12,6 @@ const Episode = ({ url }) => {
     dedupingInterval: 300000,
   });
   const episodeName = get(episodeData, 'name', '');
-  const episode = get(episodeData, 'episode', '');
 
   return (
     <>

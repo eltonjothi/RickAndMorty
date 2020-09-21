@@ -9,7 +9,7 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <SWRConfig
         value={{
-          fetcher: (...args) => fetch(...args).then((res) => res.json()),
+          fetcher: (...args) => fetch(...args).then(res => res.json()),
           revalidateOnFocus: false,
           dedupingInterval: 300000,
         }}

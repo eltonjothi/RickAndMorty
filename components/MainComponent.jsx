@@ -35,7 +35,7 @@ const MainComponent = () => {
       <div className={css(tw`container mx-auto mt-4`)}>
         <div className={css(tw`flex flex-wrap `)}>
           {Array.isArray(charactersDataResults) &&
-            charactersDataResults.map((data) => {
+            charactersDataResults.map(data => {
               const name = get(data, 'name', '');
               const image = get(data, 'image', '');
               const species = get(data, 'species', '');

@@ -38,7 +38,10 @@ const Card = ({ name, image, species, originAPI, episodes }) => {
                 </p>
               )}
               {originName && (
-                <p className={css(tw`text-gray-700 text-base`)}>
+                <p
+                  className={css(tw`text-gray-700 text-base`)}
+                  data-testid="origin"
+                >
                   {`Origin: ${originName}`}
                 </p>
               )}

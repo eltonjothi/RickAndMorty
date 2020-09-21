@@ -15,6 +15,7 @@ const Episode = ({ url }) => {
           className={css(
             tw`text-xs bg-white text-gray-800  py-1 px-1 rounded mr-1 mb-1 inline-block`,
           )}
+          data-testid="episode-name"
         >
           {episodeName}
         </span>

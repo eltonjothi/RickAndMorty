@@ -9,12 +9,13 @@ export default function MyApp({ Component, pageProps }) {
     <>
       <SWRConfig
         value={{
-          fetcher: (...args) => fetch(...args).then(res => res.json()),
+          fetcher: (...args) => fetch(...args).then((res) => res.json()),
           revalidateOnFocus: false,
           dedupingInterval: 300000,
         }}
       >
         <Head>
+          <link rel="icon" type="image/x-icon" href="/favicon.png" />
           <title>The Rick and Morty API</title>
         </Head>
         <Component {...pageProps} />

@@ -6,14 +6,20 @@ import tw from '@tailwindcssinjs/macro';
 import Episode from './Episode';
 
 interface Props {
-  name: string,
-  image: string,
-  species: string,
-  originAPI: string,
-  episodes: Array<number|string>,
+  name: string;
+  image: string;
+  species: string;
+  originAPI: string;
+  episodes: Array<number | string>;
 }
 
-const Card: React.FC<Props> = ({ name, image, species, originAPI, episodes }) => {
+const Card: React.FC<Props> = ({
+  name,
+  image,
+  species,
+  originAPI,
+  episodes,
+}) => {
   const { data: originData } = useSWR(originAPI);
   const originName = get(originData, 'name', '');
   const originDimension = get(originData, 'dimension', '');
@@ -71,10 +77,14 @@ const Card: React.FC<Props> = ({ name, image, species, originAPI, episodes }) =>
               </p>
               <div>
                 {Array.isArray(episodes) &&
-                  episodes.map((data, index) => (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <Episode url={data} key={index} />
-                  ))}
+                  episodes.map((data, index) => {
+                    const url: string = String(data);
+                    const { data: episodeData } = useSWR(url);
+                    return (
+                      // eslint-disable-next-line react/no-array-index-key
+                      <Episode data={episodeData} key={index} />
+                    );
+                  })}
               </div>
             </div>
           </div>

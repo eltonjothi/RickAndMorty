@@ -2,10 +2,13 @@ import React from 'react';
 import { css } from '@emotion/css';
 import get from 'lodash.get';
 import useSWR from 'swr';
-import PropTypes from 'prop-types';
 import tw from '@tailwindcssinjs/macro';
 
-const Episode = ({ url }) => {
+interface Props {
+  url: string,
+}
+
+const Episode: React.FC<Props> = ({ url }) => {
   const { data: episodeData, isValidating } = useSWR(url);
   const episodeName = get(episodeData, 'name', '');
   return (
@@ -22,14 +25,6 @@ const Episode = ({ url }) => {
       )}
     </>
   );
-};
-
-Episode.defaultProps = {
-  url: '',
-};
-
-Episode.propTypes = {
-  url: PropTypes.string,
 };
 
 export default Episode;

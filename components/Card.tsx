@@ -2,11 +2,18 @@ import React from 'react';
 import { css } from '@emotion/css';
 import get from 'lodash.get';
 import useSWR from 'swr';
-import PropTypes from 'prop-types';
 import tw from '@tailwindcssinjs/macro';
 import Episode from './Episode';
 
-const Card = ({ name, image, species, originAPI, episodes }) => {
+interface Props {
+  name: string,
+  image: string,
+  species: string,
+  originAPI: string,
+  episodes: Array<number|string>,
+}
+
+const Card: React.FC<Props> = ({ name, image, species, originAPI, episodes }) => {
   const { data: originData } = useSWR(originAPI);
   const originName = get(originData, 'name', '');
   const originDimension = get(originData, 'dimension', '');
@@ -77,21 +84,4 @@ const Card = ({ name, image, species, originAPI, episodes }) => {
   );
 };
 
-Card.defaultProps = {
-  name: '',
-  image: '',
-  species: '',
-  originAPI: '',
-  episodes: [],
-};
-
-Card.propTypes = {
-  name: PropTypes.string,
-  image: PropTypes.string,
-  species: PropTypes.string,
-  originAPI: PropTypes.string,
-  episodes: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  ),
-};
 export default Card;

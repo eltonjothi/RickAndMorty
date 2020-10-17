@@ -7,8 +7,9 @@ import tw from '@tailwindcssinjs/macro';
 import Card from './Card';
 import Spinner from './Spinner';
 import Pagination from './Pagination';
+import Episode from './Episode';
 
-const MainComponent = () => {
+const MainComponent: React.FC = () => {
   const router = useRouter();
   const { page = 1 } = router.query;
   const currentPage = Number(page);

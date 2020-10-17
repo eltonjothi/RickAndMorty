@@ -7,7 +7,6 @@ import tw from '@tailwindcssinjs/macro';
 import Card from './Card';
 import Spinner from './Spinner';
 import Pagination from './Pagination';
-import Episode from './Episode';
 
 const MainComponent: React.FC = () => {
   const router = useRouter();

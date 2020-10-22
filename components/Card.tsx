@@ -13,7 +13,7 @@ type Props = {
   episodes: Array<number | string>;
 };
 
-const Card = ({ name, image, species, originAPI, episodes }: Props): JSX.Element => {
+const Card = ({ name, image, species, originAPI, episodes }: Props) => {
   const { data: originData } = useSWR(originAPI);
   const originName = get(originData, 'name', '');
   const originDimension = get(originData, 'dimension', '');
@@ -74,9 +74,7 @@ const Card = ({ name, image, species, originAPI, episodes }: Props): JSX.Element
                   episodes.map((data, index) => {
                     const url = String(data);
                     const { data: episodeData } = useSWR(url);
-                    return (
-                      <Episode data={episodeData} key={index} />
-                    );
+                    return <Episode data={episodeData} key={index} />;
                   })}
               </div>
             </div>

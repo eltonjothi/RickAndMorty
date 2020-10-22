@@ -1,10 +1,11 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
+import type { AppProps /*, AppContext */ } from 'next/app';
 import { SWRConfig } from 'swr';
 import Head from 'next/head';
 import '../styles/base.css';
 
-export default function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <SWRConfig
@@ -23,3 +24,5 @@ export default function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+export default MyApp

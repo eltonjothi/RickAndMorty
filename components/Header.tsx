@@ -3,7 +3,7 @@ import { css } from '@emotion/css';
 import Link from 'next/link';
 import tw from '@tailwindcssinjs/macro';
 
-const Header: React.FC = () => (
+const Header = () => (
   <div className={css(tw`container mx-auto`)}>
     <Link href="/">
       <a>

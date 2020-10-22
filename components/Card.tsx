@@ -5,21 +5,15 @@ import useSWR from 'swr';
 import tw from '@tailwindcssinjs/macro';
 import Episode from './Episode';
 
-interface Props {
+type Props = {
   name: string;
   image: string;
   species: string;
   originAPI: string;
   episodes: Array<number | string>;
-}
+};
 
-const Card: React.FC<Props> = ({
-  name,
-  image,
-  species,
-  originAPI,
-  episodes,
-}) => {
+const Card = ({ name, image, species, originAPI, episodes }: Props) => {
   const { data: originData } = useSWR(originAPI);
   const originName = get(originData, 'name', '');
   const originDimension = get(originData, 'dimension', '');

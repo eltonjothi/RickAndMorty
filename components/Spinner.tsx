@@ -11,7 +11,7 @@ const bounce = keyframes`
   }
 `;
 
-const Spinner: React.FC = styled.div`
+const Spinner = styled.div`
   color: turquoise;
   border: 8px solid #000;
   border-radius: 50%;

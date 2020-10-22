@@ -3,11 +3,11 @@ import { css } from '@emotion/css';
 import get from 'lodash.get';
 import tw from '@tailwindcssinjs/macro';
 
-interface Props {
+type Props = {
   data: Object;
-}
+};
 
-const Episode: React.FC<Props> = ({ data }) => {
+const Episode = ({ data }: Props) => {
   const episodeName = get(data, 'name', '');
   return (
     <>

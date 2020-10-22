@@ -5,7 +5,7 @@ import { SWRConfig } from 'swr';
 import Head from 'next/head';
 import '../styles/base.css';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) =>{
   return (
     <>
       <SWRConfig

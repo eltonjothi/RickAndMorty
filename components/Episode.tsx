@@ -4,10 +4,13 @@ import get from 'lodash.get';
 import tw from '@tailwindcssinjs/macro';
 
 type Props = {
-  data: Object;
+  data: {
+    id: number;
+    name: string;
+  };
 };
 
-const Episode = ({ data }: Props) => {
+const Episode = ({ data }: Props): JSX.Element => {
   const episodeName = get(data, 'name', '');
   return (
     <>

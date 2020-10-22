@@ -10,7 +10,7 @@ type Props = {
   totalPages: number;
 };
 
-const Pagination = ({ currentPage, totalPages }: Props) => {
+const Pagination = ({ currentPage, totalPages }: Props): JSX.Element => {
   const router = useRouter();
   const previousPageParseQbject = JSON.parse(
     JSON.stringify({

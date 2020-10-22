@@ -10,7 +10,7 @@ type Props = {
   };
 };
 
-const Episode = ({ data }: Props): JSX.Element => {
+const Episode = ({ data }: Props) => {
   const episodeName = get(data, 'name', '');
   return (
     <>

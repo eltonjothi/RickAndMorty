@@ -8,7 +8,7 @@ import Card from './Card';
 import Spinner from './Spinner';
 import Pagination from './Pagination';
 
-const MainComponent = (): JSX.Element => {
+const MainComponent = () => {
   const router = useRouter();
   const { page = 1 } = router.query;
   const currentPage = Number(page);

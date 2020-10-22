@@ -1,17 +1,16 @@
 import React from 'react';
 import { css } from '@emotion/css';
 import get from 'lodash.get';
+import useSWR from 'swr';
 import tw from '@tailwindcssinjs/macro';
 
 type Props = {
-  data: {
-    id: number;
-    name: string;
-  };
+  url: string;
 };
 
-const Episode = ({ data }: Props) => {
-  const episodeName = get(data, 'name', '');
+const Episode = ({ url }: Props) => {
+  const { data: episodeData } = useSWR(url);
+  const episodeName = get(episodeData, 'name', '');
   return (
     <>
       <span

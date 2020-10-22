@@ -71,10 +71,9 @@ const Card = ({ name, image, species, originAPI, episodes }: Props) => {
               </p>
               <div>
                 {Array.isArray(episodes) &&
-                  episodes.map((data, index) => {
+                  episodes.map(data => {
                     const url = String(data);
-                    const { data: episodeData } = useSWR(url);
-                    return <Episode data={episodeData} key={index} />;
+                    return <Episode url={url} key={url} />;
                   })}
               </div>
             </div>

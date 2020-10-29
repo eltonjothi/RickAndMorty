@@ -10,7 +10,7 @@ const MyApp = ({ Component, pageProps }: AppProps) =>{
     <>
       <SWRConfig
         value={{
-          fetcher: (...args) => fetch(...args).then((res) => res.json()),
+          fetcher: (resource, init) => fetch(resource, init).then(res => res.json()),
           revalidateOnFocus: false,
           dedupingInterval: 300000,
         }}

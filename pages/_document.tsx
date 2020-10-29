@@ -15,7 +15,11 @@ import React from 'react';
 // Required for @emotion/css
 import { extractCritical } from '@emotion/server';
 
-export default class MyDocument extends Document {
+interface IProps {
+  ids: any;
+  css: any;
+}
+export default class MyDocument extends Document<IProps> {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
     const page = await ctx.renderPage();
@@ -24,11 +28,12 @@ export default class MyDocument extends Document {
   }
 
   render() {
+    const { ids } = this.props;
     return (
       <Html lang="en">
         <Head>
           <style
-            data-emotion-css={this.props.ids.join(' ')}
+            data-emotion-css={ids.join(' ')}
             dangerouslySetInnerHTML={{ __html: this.props.css }}
           />
           {/* <link rel="stylesheet" href="https://rsms.me/inter/inter.css" /> */}

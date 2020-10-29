@@ -5,7 +5,12 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import tw from '@tailwindcssinjs/macro';
 
-const Pagination = ({ currentPage, totalPages }) => {
+type Props = {
+  currentPage: number;
+  totalPages: number;
+};
+
+const Pagination = ({ currentPage, totalPages }: Props) => {
   const router = useRouter();
   const previousPageParseQbject = JSON.parse(
     JSON.stringify({

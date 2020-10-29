@@ -1,15 +1,16 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
+import type { AppProps } from 'next/app';
 import { SWRConfig } from 'swr';
 import Head from 'next/head';
 import '../styles/base.css';
 
-export default function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }: AppProps) =>{
   return (
     <>
       <SWRConfig
         value={{
-          fetcher: (...args) => fetch(...args).then((res) => res.json()),
+          fetcher: (resource, init) => fetch(resource, init).then(res => res.json()),
           revalidateOnFocus: false,
           dedupingInterval: 300000,
         }}
@@ -23,3 +24,5 @@ export default function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+export default MyApp

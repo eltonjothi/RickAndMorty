@@ -15,9 +15,13 @@ type Props = {
 
 const Card = ({ name, image, species, originAPI, episodes }: Props) => {
   const { data: originData } = useSWR(originAPI);
-  const originName = get(originData, 'name', '');
-  const originDimension = get(originData, 'dimension', '');
-  const originResidents = get(originData, 'residents', []);
+  const originName: string = get(originData, 'name', '');
+  const originDimension: string = get(originData, 'dimension', '');
+  const originResidents: Array<string | number> = get(
+    originData,
+    'residents',
+    [],
+  );
   return (
     <>
       <div
@@ -72,7 +76,7 @@ const Card = ({ name, image, species, originAPI, episodes }: Props) => {
               <div>
                 {Array.isArray(episodes) &&
                   episodes.map(data => {
-                    const url = String(data);
+                    const url: string = String(data);
                     return <Episode url={url} key={url} />;
                   })}
               </div>

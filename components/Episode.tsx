@@ -10,7 +10,7 @@ type Props = {
 
 const Episode = ({ url }: Props) => {
   const { data: episodeData } = useSWR(url);
-  const episodeName = get(episodeData, 'name', '');
+  const episodeName: string = get(episodeData, 'name', '');
   return (
     <>
       <span

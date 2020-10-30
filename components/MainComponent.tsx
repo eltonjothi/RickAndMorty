@@ -14,8 +14,12 @@ const MainComponent = () => {
   const currentPage = Number(page);
   const charactersAPI = `https://rickandmortyapi.com/api/character/?page=${currentPage}`;
   const { data: charactersData, error, isValidating } = useSWR(charactersAPI);
-  const charactersDataResults = get(charactersData, 'results', []);
-  const totalPages = get(charactersData, 'info.pages', 0);
+  const charactersDataResults: Array<string | number> = get(
+    charactersData,
+    'results',
+    [],
+  );
+  const totalPages: number = get(charactersData, 'info.pages', 0);
   if (isValidating || charactersData === undefined) {
     return (
       <div className={css(tw`flex justify-center mt-4`)}>
@@ -36,14 +40,15 @@ const MainComponent = () => {
         <div className={css(tw`flex flex-wrap `)}>
           {Array.isArray(charactersDataResults) &&
             charactersDataResults.map(data => {
-              const name = get(data, 'name', '');
-              const image = get(data, 'image', '');
-              const species = get(data, 'species', '');
-              const originAPI = get(data, 'origin.url', '');
-              const episodes = get(data, 'episode', []);
+              const id = get(data, 'id', '');
+              const name: string = get(data, 'name', '');
+              const image: string = get(data, 'image', '');
+              const species: string = get(data, 'species', '');
+              const originAPI: string = get(data, 'origin.url', '');
+              const episodes: Array<string | number> = get(data, 'episode', []);
               return (
                 <Card
-                  key={data.id}
+                  key={id}
                   name={name}
                   image={image}
                   species={species}

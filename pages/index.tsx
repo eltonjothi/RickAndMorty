@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import MainComponent from '../components/MainComponent';
 
-const Index = (): JSX.Element => (
+const Index = () => (
   <>
     <Header />
     <MainComponent />
